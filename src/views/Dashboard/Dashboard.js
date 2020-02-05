@@ -1,5 +1,6 @@
 import React, { Component, lazy, Suspense } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
+
 import {
   Badge,
   Button,
@@ -20,8 +21,30 @@ import {
   Row,
   Table,
 } from 'reactstrap';
-import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
-import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
+
+const tree = [
+  {
+    value: 'Parent A',
+    nodes: [{ value: 'Child A' }, { value: 'Child B' }],
+  },
+  {
+    value: 'Parent B',
+    nodes: [
+      {
+        value: 'Child C',
+      },
+      {
+        value: 'Parent C',
+        nodes: [
+          { value: 'Child D' },
+          { value: 'Child E' },
+          { value: 'Child F' },
+        ],
+      },
+    ],
+  },
+];
+
 
 class Dashboard extends Component {
   constructor(props) {
@@ -58,7 +81,7 @@ class Dashboard extends Component {
           <Col>
             <Card>
               <CardBody>
-
+       
               </CardBody>
               <CardFooter>
                
@@ -66,7 +89,7 @@ class Dashboard extends Component {
             </Card>
           </Col>
         </Row>
-
+       
       </div>
     );
   }
