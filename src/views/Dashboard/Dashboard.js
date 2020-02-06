@@ -1,5 +1,6 @@
 import React, { Component, lazy, Suspense } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
+import { Accordion, AccordionItem } from 'react-sanfona';
 
 import {
   Badge,
@@ -81,7 +82,17 @@ class Dashboard extends Component {
           <Col>
             <Card>
               <CardBody>
-       
+              <Accordion>
+        {[1, 2, 3, 4, 5].map(item => {
+          return (
+            <AccordionItem title={`Tarjeta de credito ${item}`} expanded={item === 1}>
+              <div>
+                {`ARS$20.000`}
+              </div>
+            </AccordionItem>
+          );
+        })}
+      </Accordion>
               </CardBody>
               <CardFooter>
                
