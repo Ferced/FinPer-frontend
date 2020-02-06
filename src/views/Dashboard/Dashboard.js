@@ -1,7 +1,7 @@
 import React, { Component, lazy, Suspense } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
-import { Accordion, AccordionItem } from 'react-sanfona';
 import Tree from 'react-animated-tree';
+import ContenidoLinea from './contenidoLinea';
  
 
 import {
@@ -23,6 +23,7 @@ import {
   Progress,
   Row,
   Table,
+  
 } from 'reactstrap';
 
 const tree = [
@@ -73,7 +74,13 @@ class Dashboard extends Component {
       radioSelected: radioSelected,
     });
   }
-
+  contenido = () =>
+   <div>
+<Row>
+  <text>sarasa</text>
+  <text>sarasa</text>
+</Row>
+  </div>
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   render() {
@@ -85,33 +92,31 @@ class Dashboard extends Component {
             <Card>
               <CardTitle style={{fontFamily:"",letterSpacing:"1px",margin:"20px",fontSize:"1.5em"}}> TARJETAS DE CREDITO </CardTitle>
               <CardBody>
-        
-      
-<Tree content="VISA GALICIA">
-  <Tree content="ARS$20.000">
-    <Tree content="ARS$1500" />
-    <Tree content="ARS$5000" />
-    <Tree content="ARS$5000" />
-    <Tree content="ARS$8500" />
-  </Tree>
-</Tree>
-<Tree content="MASTERCARD GALICIA">
-  <Tree content="ARS$15.000">
-    <Tree content="ARS$1500" />
-    <Tree content="ARS$5000" />
-    <Tree content="ARS$8500" />
-  </Tree>
-</Tree>
-<Tree content="MASTERCARD MERCADOPAGO">
-  <Tree content="ARS$15.000">
-    <Tree content="ARS$1500" />
-    <Tree content="ARS$5000" />
-    <Tree content="ARS$8500" />
-  </Tree>
-</Tree>
+                <Tree content={<ContenidoLinea />} open="true">
+                  <Tree content="ARS$20.000">
+                    <Tree content="ARS$1500" />
+                    <Tree content="ARS$5000" />
+                    <Tree content="ARS$5000" />
+                    <Tree content="ARS$8500" />
+                  </Tree>
+                </Tree>
+                <Tree content="MASTERCARD GALICIA" open="true"> 
+                  <Tree content="ARS$15.000">
+                    <Tree content="ARS$1500" />
+                    <Tree content="ARS$5000" />
+                    <Tree content="ARS$8500" />
+                  </Tree>
+                </Tree>
+                <Tree content="MASTERCARD MERCADOPAGO" open="true">
+                  <Tree content="ARS$15.000">
+                    <Tree content="ARS$1500" />
+                    <Tree content="ARS$5000" />
+                    <Tree content="ARS$8500" />
+                  </Tree>
+                </Tree>
               </CardBody>
               <CardFooter>
-               
+               <text>Total: ARS$50.000</text>
               </CardFooter>
             </Card>
           </Col>
