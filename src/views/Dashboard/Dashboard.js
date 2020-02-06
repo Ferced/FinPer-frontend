@@ -1,6 +1,8 @@
 import React, { Component, lazy, Suspense } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
 import { Accordion, AccordionItem } from 'react-sanfona';
+import Tree from 'react-animated-tree';
+ 
 
 import {
   Badge,
@@ -81,18 +83,32 @@ class Dashboard extends Component {
          <Row>
           <Col>
             <Card>
+              <CardTitle style={{fontFamily:"",letterSpacing:"1px",margin:"20px",fontSize:"1.5em"}}> TARJETAS DE CREDITO </CardTitle>
               <CardBody>
-              <Accordion>
-        {[1, 2, 3, 4, 5].map(item => {
-          return (
-            <AccordionItem title={`Tarjeta de credito ${item}`} expanded={item === 1}>
-              <div>
-                {`ARS$20.000`}
-              </div>
-            </AccordionItem>
-          );
-        })}
-      </Accordion>
+        
+      
+<Tree content="VISA GALICIA">
+  <Tree content="ARS$20.000">
+    <Tree content="ARS$1500" />
+    <Tree content="ARS$5000" />
+    <Tree content="ARS$5000" />
+    <Tree content="ARS$8500" />
+  </Tree>
+</Tree>
+<Tree content="MASTERCARD GALICIA">
+  <Tree content="ARS$15.000">
+    <Tree content="ARS$1500" />
+    <Tree content="ARS$5000" />
+    <Tree content="ARS$8500" />
+  </Tree>
+</Tree>
+<Tree content="MASTERCARD MERCADOPAGO">
+  <Tree content="ARS$15.000">
+    <Tree content="ARS$1500" />
+    <Tree content="ARS$5000" />
+    <Tree content="ARS$8500" />
+  </Tree>
+</Tree>
               </CardBody>
               <CardFooter>
                
