@@ -74,19 +74,15 @@ class Dashboard extends Component {
       radioSelected: radioSelected,
     });
   }
-  contenido = () =>
-   <div>
-<Row>
-  <text>sarasa</text>
-  <text>sarasa</text>
-</Row>
-  </div>
+ 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
   render() {
 
     return (
       <div className="animated fadeIn">
+        <Row>
+        <Col xs="9">
          <Row>
           <Col>
             <Card>
@@ -121,7 +117,114 @@ class Dashboard extends Component {
             </Card>
           </Col>
         </Row>
-       
+        <Row>
+          <Col>
+            <Card>
+              <CardTitle style={{fontFamily:"",letterSpacing:"1px",margin:"20px",fontSize:"1.5em"}}>
+              <Row style={{marginBottom :"10px"}}>
+                <Col xs="6" ><text> TARJETAS DE DEBITO </text></Col>
+                <Col xs="6" ><Button style={{backgroundColor:"#60b3eb",color:"white"}}>+</Button></Col>
+                </Row>
+                
+                
+                 </CardTitle>
+              <CardBody>
+                <Tree content={<ContenidoLinea />} open="true">
+                <Row style={{marginBottom :"10px"}}>
+                <Col xs="4" ><text>Marihuana</text></Col>
+                <Col xs="4" ><text>ARS$1500</text></Col>
+                <Col xs="4" ><Button style={{backgroundColor:"#db4848",color:"white"}}>x</Button></Col>
+                </Row>
+                <Row style={{marginBottom :"10px"}}>
+                <Col xs="4" ><text>Marihuana</text></Col>
+                <Col xs="4" ><text>ARS$1500</text></Col>
+                <Col xs="4" ><Button style={{backgroundColor:"#db4848",color:"white"}}>x</Button></Col>
+                </Row>      <Row style={{marginBottom :"10px"}}>
+                <Col xs="4" ><text>Marihuana</text></Col>
+                <Col xs="4" ><text>ARS$1500</text></Col>
+                <Col xs="4" ><Button style={{backgroundColor:"#db4848",color:"white"}}>x</Button></Col>
+                </Row>      <Row style={{marginBottom :"10px"}}>
+                <Col xs="4" ><text>Marihuana</text></Col>
+                <Col xs="4" ><text>ARS$1500</text></Col>
+                <Col xs="4" ><Button style={{backgroundColor:"#db4848",color:"white"}}>x</Button></Col>
+                </Row>      <Row style={{marginBottom :"10px"}}>
+                <Col xs="4" ><text>Marihuana</text></Col>
+                <Col xs="4" ><text>ARS$1500</text></Col>
+                <Col xs="4" ><Button style={{backgroundColor:"#db4848",color:"white"}}>x</Button></Col>
+                </Row>      <Row style={{marginBottom :"10px"}}>
+                <Col xs="4" ><text>Marihuana</text></Col>
+                <Col xs="4" ><text>ARS$1500</text></Col>
+                <Col xs="4" ><Button style={{backgroundColor:"#db4848",color:"white"}}>x</Button></Col>
+                </Row>
+            
+                
+                </Tree>
+              
+              </CardBody>
+              <CardFooter>
+               <text>Total gastado este mes: ARS$50.000</text>
+              </CardFooter>
+            </Card>
+          </Col>
+        </Row>
+        </Col>
+        <Col xs="3">
+        <Row>
+          <Col>
+            <Card>
+              <CardTitle style={{fontFamily:"",letterSpacing:"1px",margin:"20px",fontSize:"1.5em"}}> TARJETA GALICIA </CardTitle>
+              <CardBody>
+                <Card>
+                  <CardTitle style={{fontFamily:"",letterSpacing:"1px",margin:"20px",fontSize:"1em"}}> Gastado: </CardTitle>
+                  <CardBody>
+                    <Col>
+                    <text>
+                      ARS$20.000
+                    </text>
+                    </Col>
+                  
+                  </CardBody>
+                </Card>
+                <Card>
+                  <CardTitle style={{fontFamily:"",letterSpacing:"1px",margin:"20px",fontSize:"1em"}}> Cierre: </CardTitle>
+                  <CardBody>
+                    <Col>
+                    <text>
+                      28/02/2020
+                    </text>
+                    </Col>
+                  
+                  </CardBody>
+                </Card>
+                <Card>
+                  <CardTitle style={{fontFamily:"",letterSpacing:"1px",margin:"20px",fontSize:"1em"}}> Vencimiento: </CardTitle>
+                  <CardBody>
+                    <Col>
+                    <text>
+                      06/03/2020
+                    </text>
+                    </Col>
+                  
+                  </CardBody>
+                </Card>
+                <Card>
+                  <CardTitle style={{fontFamily:"",letterSpacing:"1px",margin:"20px",fontSize:"1em"}}> Nota adicional: </CardTitle>
+                  <CardBody>
+                    <Col>
+                    <text>
+                      no la pienso pagar wacho
+                    </text>
+                    </Col>
+                  
+                  </CardBody>
+                </Card>
+              </CardBody>
+          
+            </Card>
+          </Col>
+        </Row>
+        </Col>
+        </Row>
       </div>
     );
   }

@@ -11,14 +11,12 @@ import {
 class ContenidoLinea extends Component {
   render() {
     return (
-        <div style={{position:"absolute",left:"7px",bottom:"35px"}}>
+     
+            <text>VISA GALICIA</text>
+       
 
-        
-         <Col>
-            <text>sarasa</text>
             
-        </Col>
-        </div>
+        
     );
   }
 }
