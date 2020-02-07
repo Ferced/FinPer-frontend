@@ -1,8 +1,7 @@
 import React, { Component, lazy, Suspense } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
 import Tree from 'react-animated-tree';
-import ContenidoLinea from './contenidoLinea';
-import EnhancedTable from './tablaGastos'; 
+
  
 
 import {
@@ -89,7 +88,7 @@ class Dashboard extends Component {
             <Card>
               <CardTitle style={{fontFamily:"",letterSpacing:"1px",margin:"20px",fontSize:"1.5em"}}> TARJETAS DE CREDITO </CardTitle>
               <CardBody>
-                <Tree content={<ContenidoLinea />} open="true">
+                <Tree content="VISA GALICIA" open="true">
                   <Tree content="ARS$20.000">
                   <Table borderless hover responsive>
                 <thead>
@@ -170,7 +169,7 @@ class Dashboard extends Component {
                 
                  </CardTitle>
               <CardBody>
-                <Tree content={<ContenidoLinea />} open="true">
+                <Tree content="VISA GALICIA" open="true">
           
                 <Row>
 
