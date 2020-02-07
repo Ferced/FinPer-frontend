@@ -20,12 +20,12 @@ class DefaultHeader extends Component {
     const { children, ...attributes } = this.props;
 
     return (
-      <React.Fragment>
+      <React.Fragment style = {{height:"55%"}}>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
         
-        <AppSidebarToggler className="d-md-down-none" display="lg" />
+        <AppSidebarToggler className="d-md-down-none" display="lg" style={{}}/>
 
-       
+       <text style={{fontSize:"1.5em"}}>FEBRERO</text>
         <Nav className="ml-auto" navbar>
 
         
