@@ -115,7 +115,7 @@ class Dashboard extends Component {
                 <tr>
                   <td>Batman</td>
                   <td>ARS$1300</td>
-                  <td>3/12</td>
+                  <td>03/12</td>
                   <td><Button style={{backgroundColor:"#db4848",color:"white"}}>x</Button></td>
                 </tr>
                 <tr>
