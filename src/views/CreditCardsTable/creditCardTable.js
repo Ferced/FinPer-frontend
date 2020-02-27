@@ -14,15 +14,32 @@ import axios from 'axios'
 
 class CreditCardTable extends Component {
   state = {
-    gastos: []
+    expenses: []
   }
-  handleGastosCallback  = gastos => {
-    this.setState({gastos})
+  sumAllCreditCardExpense = list => {
+    var sum = list.reduce(function(prev, cur) {
+      return prev + (cur.id * 100);
+    }, 0)
+    console.log("suma: ")
+    console.log(sum)
+    return "ARS$"+sum;
+  }
+  handleDeleteExpenses  = expense => {
+    var expenses = this.state.expenses.filter(function( obj ) {
+      return obj.id !== expense.id;
+    });
+    console.log("estado actual de la lista: ")
+    console.log(this.state.expenses)
+    console.log("voy a elminar el siguiente gasto: ")
+    console.log(expense)
+    console.log("como quedaria: ")
+    console.log(expenses)
+    this.setState({expenses})
   }
   componentDidMount() {
     
     axios.get('https://jsonplaceholder.typicode.com/users/1/todos')
-      .then(res =>this.setState({ gastos: res.data }))
+      .then(res =>this.setState({ expenses: res.data }))
   }
   render() {
     return (
@@ -30,18 +47,18 @@ class CreditCardTable extends Component {
             <CardTitle style={{fontFamily:"",letterSpacing:"1px",margin:"20px",fontSize:"1.5em"}}> TARJETAS DE CREDITO </CardTitle>
             <CardBody>
               <Tree content={<text>VISA GALICIA</text>} open="true">
-                <Tree content="ARS$20.000">
-                <ExpensesTable gastos={this.state.gastos}/>
+                <Tree content={this.sumAllCreditCardExpense(this.state.expenses) }>
+                <ExpensesTable expenses={this.state.expenses} handleDeleteExpenses={this.handleDeleteExpenses}/>
                 </Tree>
               </Tree>
               <Tree content="MASTERCARD GALICIA" open="true"> 
                 <Tree content="ARS$15.000">
-                <ExpensesTable gastos={this.state.gastos}/>
+                <ExpensesTable expenses={this.state.expenses} handleDeleteExpenses={this.handleDeleteExpenses}/>
                 </Tree>
               </Tree>
               <Tree content="MASTERCARD MERCADOPAGO" open="true">
                 <Tree content="ARS$15.000">
-                <ExpensesTable gastos={this.state.gastos}/>
+                <ExpensesTable expenses={this.state.expenses} handleDeleteExpenses={this.handleDeleteExpenses}/>
                 </Tree>
               </Tree>
             </CardBody>

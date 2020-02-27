@@ -17,30 +17,23 @@ import {
 
 class ExpensesTable extends Component {
     state = {
-        gastos: this.props.gastos,
+    
       }
       componentWillMount() {
     
-        this.setState({gastos : this.props.gastos})
+      
       }
       eliminarGasto = gasto => {
-        var gastos = this.props.gastos
-        gastos.splice(gasto.id - 1 , 1);
-        console.log( " elimino el siguiente gasto")
-        console.log(gasto)
-        console.log("la lista queda asi: ")
-        console.log(gastos)
-        console.log(this.state.gastos)
-
-        this.setState({ gastos: gastos },() => {console.log(this.state.gastos)})
+   
+        this.props.handleDeleteExpenses(gasto)
       }
   render() {
     return (
 <React.Fragment>
         <div>
-        {this.props.gastos.map((gasto) => (
+        {this.props.expenses.map((gasto) => (
         <div>
-         <Row style={{marginBottom :"10px", display: gasto.completed ? "true" : "none"}}>
+         <Row style={{marginBottom :"10px"}}>
         <Col xs="4" ><text>{gasto.title}</text></Col>
         <Col xs="4" ><text>ARS${gasto.id}00</text></Col>
         <Col xs="4" ><Button style={{backgroundColor:"#db4848",color:"white"}} onClick={this.eliminarGasto.bind(this,gasto)}>x</Button></Col>
@@ -49,9 +42,6 @@ class ExpensesTable extends Component {
         ))
         }
         </div>
-        
- 
-
 </React.Fragment>
     );
   }
