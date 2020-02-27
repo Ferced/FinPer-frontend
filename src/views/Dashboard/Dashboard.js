@@ -1,14 +1,9 @@
 import React, { Component, lazy, Suspense } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
 import Tree from 'react-animated-tree';
-<<<<<<< HEAD
 import CreditCardTable from './../CreditCardsTable/creditCardTable';
 import DebitCardTable from './../DebitCardsTable/debitCardsTable';
 import AdditionalInfoCard from './../AdditionalInfoCard/additionalInfoCard';
-=======
-
- 
->>>>>>> b3d075fb93267e57860cef9bfdfa1a05cf5f6158
 
 import {
   Badge,
@@ -91,9 +86,8 @@ class Dashboard extends Component {
         <Col xs="9">
          <Row>
           <Col>
-<<<<<<< HEAD
             < CreditCardTable />
-=======
+
             <Card>
               <CardTitle style={{fontFamily:"",letterSpacing:"1px",margin:"20px",fontSize:"1.5em"}}> TARJETAS DE CREDITO </CardTitle>
               <CardBody>
@@ -164,84 +158,12 @@ class Dashboard extends Component {
                <text>Total: ARS$50.000</text>
               </CardFooter>
             </Card>
->>>>>>> b3d075fb93267e57860cef9bfdfa1a05cf5f6158
+
           </Col>
         </Row>
         <Row>
           <Col>
-<<<<<<< HEAD
           < DebitCardTable />
-=======
-            <Card>
-              <CardTitle style={{fontFamily:"",letterSpacing:"1px",margin:"20px",fontSize:"1.5em"}}>
-              <Row style={{marginBottom :"10px"}}>
-                <Col xs="6" ><text> TARJETAS DE DEBITO </text></Col>
-                <Col xs="6" ><Button style={{backgroundColor:"#60b3eb",color:"white"}}>+</Button></Col>
-                </Row>
-                
-                
-                 </CardTitle>
-              <CardBody>
-                <Tree content="VISA GALICIA" open="true">
-          
-                <Row>
-
-                <Table borderless hover responsive>
-                <thead>
-                  <tr>
-                    <th>Nombre</th>
-                    <th>Importe</th>
-                    <th>Eliminar</th>
-                  </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>Marihuana</td>
-                  <td>ARS$1650</td>
-                  <td><Button style={{backgroundColor:"#db4848",color:"white"}}>x</Button></td>
-                </tr>
-                <tr>
-                  <td>LSD</td>
-                  <td>ARS$1000</td>
-                  <td><Button style={{backgroundColor:"#db4848",color:"white"}}>x</Button></td>
-                </tr>
-                <tr>
-                  <td>Batman</td>
-                  <td>ARS$1300</td>
-                  <td><Button style={{backgroundColor:"#db4848",color:"white"}}>x</Button></td>
-                </tr>
-                <tr>
-                  <td>Superman</td>
-                  <td>ARS$1300</td>
-                  <td><Button style={{backgroundColor:"#db4848",color:"white"}}>x</Button></td>
-                </tr>
-                <tr>
-                  <td>Batman</td>
-                  <td>ARS$1300</td>
-                  <td><Button style={{backgroundColor:"#db4848",color:"white"}}>x</Button></td>
-                </tr>
-                <tr>
-                  <td>Batman</td>
-                  <td>ARS$1300</td>
-                  <td><Button style={{backgroundColor:"#db4848",color:"white"}}>x</Button></td>
-                </tr>
-                <tr>
-                  <td>Robin</td>
-                  <td>ARS$1300</td>
-                  <td><Button style={{backgroundColor:"#db4848",color:"white"}}>x</Button></td>
-                </tr>
-                </tbody>
-                </Table>
-                </Row>
-
-                </Tree>
-              
-              </CardBody>
-              <CardFooter>
-               <text>Total gastado este mes: ARS$50.000</text>
-              </CardFooter>
-            </Card>
->>>>>>> b3d075fb93267e57860cef9bfdfa1a05cf5f6158
           </Col>
         </Row>
         </Col>
