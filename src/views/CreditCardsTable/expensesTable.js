@@ -34,7 +34,7 @@ class ExpensesTable extends Component {
         {this.props.expenses.map((gasto) => (
         <div>
          <Row style={{marginBottom :"10px"}}>
-        <Col xs="4" ><text>{gasto.title}</text></Col>
+        <Col xs="4" ><text>{gasto.title.split(" ")[0]}</text></Col>
         <Col xs="4" ><text>ARS${gasto.id}00</text></Col>
         <Col xs="4" ><Button style={{backgroundColor:"#db4848",color:"white"}} onClick={this.eliminarGasto.bind(this,gasto)}>x</Button></Col>
         </Row>
