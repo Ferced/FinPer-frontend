@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Tree from 'react-animated-tree';
 import ExpensesTable from './expensesTable';
+import AddExpenditure from './addExpenditure';
 import {
     Card,
     CardBody,
@@ -8,62 +9,76 @@ import {
     CardTitle,
     Row,
     Button,
-    Col
+    Col,
+    Input,
+    Form,
+    FormGroup,
+    Label
   } from 'reactstrap';
 import axios from 'axios'
 
+
 class CreditCardTable extends Component {
   state = {
-    expenses: []
+    expenses: [],
+    creditCardsList:["VISA GALICIA","MASTERCARD GALICIA","MASTERCARD MERCADOPAGO"],
+    displayAddExpenditure: false
   }
   sumAllCreditCardExpense = list => {
     var sum = list.reduce(function(prev, cur) {
       return prev + (cur.id * 100);
     }, 0)
-    console.log("suma: ")
-    console.log(sum)
     return "ARS$"+sum;
   }
   handleDeleteExpenses  = expense => {
     var expenses = this.state.expenses.filter(function( obj ) {
       return obj.id !== expense.id;
     });
-    console.log("estado actual de la lista: ")
-    console.log(this.state.expenses)
-    console.log("voy a elminar el siguiente gasto: ")
-    console.log(expense)
-    console.log("como quedaria: ")
+    this.setState({expenses})
+  }
+
+  alternateDisplayAddExpenditure = () => {
+    this.setState({displayAddExpenditure : !this.state.displayAddExpenditure})
+
+  }
+  addExpenditureToList = expenditure => {
+    console.log("A VER, LLEGO HASTA ACA")
+    var expenses = this.state.expenses
+    expenses.push(expenditure)
+    console.log("SE AGREGO ITEM A LA LISTA: ")
     console.log(expenses)
     this.setState({expenses})
   }
   componentDidMount() {
-    
     axios.get('https://jsonplaceholder.typicode.com/users/1/todos')
       .then(res =>this.setState({ expenses: res.data }))
   }
   render() {
     return (
             <Card>
-            <CardTitle style={{fontFamily:"",letterSpacing:"1px",margin:"20px",fontSize:"1.5em"}}> TARJETAS DE CREDITO </CardTitle>
+            <CardTitle style={{fontFamily:"",letterSpacing:"1px",margin:"20px",fontSize:"1.5em"}}>
+             <Row style={{marginBottom :"10px"}}>
+                <Col xs="6" ><text> TARJETAS DE CREDITO </text></Col>
+                <Col xs="6" >
+                  <Button style={{backgroundColor:"#60b3eb",color:"white"}} onClick={this.alternateDisplayAddExpenditure}>
+                    {this.state.displayAddExpenditure ? "Cancelar" : "+" }
+                  </Button>
+                </Col>
+              </Row>
+            </CardTitle>
             <CardBody>
-              <Tree content={<text>VISA GALICIA</text>} open="true">
-                <Tree content={this.sumAllCreditCardExpense(this.state.expenses) }>
-                <ExpensesTable expenses={this.state.expenses} handleDeleteExpenses={this.handleDeleteExpenses}/>
+              <AddExpenditure creditCardsList={this.state.creditCardsList} addExpenditureToList={this.addExpenditureToList} displayAddExpenditure = { this.state.displayAddExpenditure } alternateDisplayAddExpenditure={this.alternateDisplayAddExpenditure} />
+              {this.state.creditCardsList.map((creditCardName) => ( 
+                <Tree content={<text>{creditCardName}</text>} open="true">
+                  <Tree content={this.sumAllCreditCardExpense(this.state.expenses) }>
+                  <ExpensesTable expenses={this.state.expenses} handleDeleteExpenses={this.handleDeleteExpenses}/>
+                  </Tree>
                 </Tree>
-              </Tree>
-              <Tree content="MASTERCARD GALICIA" open="true"> 
-                <Tree content="ARS$15.000">
-                <ExpensesTable expenses={this.state.expenses} handleDeleteExpenses={this.handleDeleteExpenses}/>
-                </Tree>
-              </Tree>
-              <Tree content="MASTERCARD MERCADOPAGO" open="true">
-                <Tree content="ARS$15.000">
-                <ExpensesTable expenses={this.state.expenses} handleDeleteExpenses={this.handleDeleteExpenses}/>
-                </Tree>
-              </Tree>
+              ))// map
+              }
             </CardBody>
             <CardFooter>
-             <text>Total: ARS$50.000</text>
+              <text>Total: ARS$50.000</text>
             </CardFooter>
           </Card>
     );
