@@ -36,7 +36,7 @@ class ExpensesTable extends Component {
         <Row style={{marginBottom :"10px"}}>
           <Col ><text>{gasto.title.split(" ")[0]}</text></Col>
           <Col ><text>1/12</text></Col>
-          <Col ><text>ARS${gasto.id}00</text></Col>
+          <Col ><text>ARS${gasto.id < 10 ? gasto.id * 100 : gasto.id}</text></Col>
           <Col ><Button style={{backgroundColor:"#db4848",color:"white"}} onClick={this.eliminarGasto.bind(this,gasto)}>x</Button></Col>
         </Row>
         </div>
@@ -49,3 +49,4 @@ class ExpensesTable extends Component {
 }
 
 export default ExpensesTable;
+

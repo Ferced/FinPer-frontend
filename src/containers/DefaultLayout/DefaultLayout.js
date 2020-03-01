@@ -38,7 +38,7 @@ class DefaultLayout extends Component {
       <div className="app">
         <AppHeader>
           <Suspense  fallback={this.loading()}>
-            <DefaultHeader onLogout={e=>this.signOut(e)}/>
+            <DefaultHeader onLogout={e=>this.signOut(e)} style={{ position: "fixed"}}/>
           </Suspense>
         </AppHeader>
         <div className="app-body">

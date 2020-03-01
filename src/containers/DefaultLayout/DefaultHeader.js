@@ -20,7 +20,7 @@ class DefaultHeader extends Component {
     const { children, ...attributes } = this.props;
 
     return (
-      <React.Fragment style = {{height:"55%"}}>
+      <React.Fragment style = {{height:"55%", position: "fixed"}}>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
         
         <AppSidebarToggler className="d-md-down-none" display="lg" style={{}}/>

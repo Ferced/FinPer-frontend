@@ -26,7 +26,7 @@ class CreditCardTable extends Component {
   }
   sumAllCreditCardExpense = list => {
     var sum = list.reduce(function(prev, cur) {
-      return prev + (cur.id * 100);
+      return prev + (cur.id <10 ? cur.id * 100 : cur.id);
     }, 0)
     return "ARS$"+sum;
   }
@@ -67,7 +67,13 @@ class CreditCardTable extends Component {
               </Row>
             </CardTitle>
             <CardBody>
-              <AddExpenditure creditCardsList={this.state.creditCardsList} addExpenditureToList={this.addExpenditureToList} displayAddExpenditure = { this.state.displayAddExpenditure } alternateDisplayAddExpenditure={this.alternateDisplayAddExpenditure} />
+              { 
+              this.state.displayAddExpenditure 
+              ? 
+              <AddExpenditure creditCardsList={this.state.creditCardsList} addExpenditureToList={this.addExpenditureToList} displayAddExpenditure = { this.state.displayAddExpenditure } alternateDisplayAddExpenditure={this.alternateDisplayAddExpenditure} /> 
+              : 
+              <div style={{display: "None"}} />
+              }
               {this.state.creditCardsList.map((creditCardName) => ( 
                 <Tree content={<text>{creditCardName}</text>} open="true">
                   <Tree content={this.sumAllCreditCardExpense(this.state.expenses) }>
