@@ -21,7 +21,7 @@ import axios from 'axios'
 class CreditCardTable extends Component {
   state = {
     expenses: [],
-    creditCardsList:["VISA GALICIA","MASTERCARD GALICIA","MASTERCARD MERCADOPAGO"],
+    creditCardsList:[],
     displayAddExpenditure: false
   }
   sumAllCreditCardExpense = list => {
@@ -50,8 +50,10 @@ class CreditCardTable extends Component {
     this.setState({expenses})
   }
   componentDidMount() {
-    axios.get('https://jsonplaceholder.typicode.com/users/1/todos')
+    axios.get('http://127.0.0.1:5000/credit_card/expenses/')
       .then(res =>this.setState({ expenses: res.data }))
+    axios.get('http://127.0.0.1:5000/credit_card/details/')
+      .then(res =>this.setState({ creditCardsList: res.data }))
   }
   render() {
     return (
@@ -75,7 +77,7 @@ class CreditCardTable extends Component {
               <div style={{display: "None"}} />
               }
               {this.state.creditCardsList.map((creditCardName) => ( 
-                <Tree content={<text>{creditCardName}</text>} open="true">
+                <Tree content={<text>{creditCardName.credit_card_bank_name}</text>} open="true">
                   <Tree content={this.sumAllCreditCardExpense(this.state.expenses) }>
                   <ExpensesTable expenses={this.state.expenses} handleDeleteExpenses={this.handleDeleteExpenses}/>
                   </Tree>
